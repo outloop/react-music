@@ -1,0 +1,17 @@
+.block button {
+    position: relative;
+    top: -6.5rem;
+    left: 7.5rem;
+}
+
+.block {
+    padding: 1rem;
+}
+
+.block .card-body {
+    padding: .5rem;
+}
+
+.block .card-text {
+    height: 3rem;
+}

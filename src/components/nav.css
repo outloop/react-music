@@ -1,0 +1,22 @@
+.route-nav a {
+    color: white;
+}
+
+.route-nav a:visited {
+    color: white;
+}
+
+.route-nav button {
+    border-radius: 0 !important;
+    outline: none;
+}
+
+.route-nav {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+}
+
+.nav-active{
+    background-color: #1f2225;
+}
