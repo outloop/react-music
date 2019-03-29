@@ -70,7 +70,7 @@ class Recommond extends React.Component {
                                                     alt="" />
 
                                                 <Media.Body>
-                                                    <h5>{val.title}</h5>
+                                                    <h5 className='ellipsis media-des'>{val.title}</h5>
                                                     <p className='ellipsis media-des'>
                                                         {val.description}
                                                     </p>
