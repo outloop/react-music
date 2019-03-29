@@ -8,15 +8,9 @@ class Nav extends React.Component {
         return (
             <div className='route-nav d-flex flex-column'>
                 <ButtonGroup>
-                    <Button variant="dark">
-                        <NavLink activeClassName='nav-active' className='nav-link' exact={true} to={{ pathname: '/recommend' }}>推荐</NavLink>
-                    </Button>
-                    <Button variant="dark">
-                        <NavLink activeClassName='nav-active' className='nav-link' to={{ pathname: '/hot' }}>热门</NavLink>
-                    </Button>
-                    <Button variant="dark">
-                        <NavLink activeClassName='nav-active' className='nav-link' to={{ pathname: '/search' }}>搜索</NavLink>
-                    </Button>
+                    <NavLink activeClassName='active' className='nav-link btn btn-dark' exact={true} to={{ pathname: '/recommend' }}>推荐</NavLink>
+                    <NavLink activeClassName='active' className='nav-link btn btn-dark' to={{ pathname: '/hot' }}>热门</NavLink>
+                    <NavLink activeClassName='active' className='nav-link btn btn-dark' to={{ pathname: '/search' }}>搜索</NavLink>
                 </ButtonGroup>
             </div>
         )

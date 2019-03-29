@@ -6,7 +6,7 @@
     color: white;
 }
 
-.route-nav button {
+.route-nav .btn {
     border-radius: 0 !important;
     outline: none;
 }
