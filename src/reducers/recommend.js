@@ -1,7 +1,7 @@
 import {BOUTIQUE, MV, NEWEST} from '../actions/recommend'
 
 
-const reducer = (state = {sliders:[], albums:[], mvs:[]}, action) => {
+const reducer = (state = {}, action) => {
     switch (action.type) {
         case NEWEST:
             return {...state, sliders: action.obj.list}

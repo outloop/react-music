@@ -1,14 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Media, Jumbotron, Container, Spinner, Image, ListGroup } from 'react-bootstrap'
+import { Media, Jumbotron, Container, Spinner, Image, ListGroup, Button } from 'react-bootstrap'
 import Axios from 'axios'
 import { songList } from '../../actions/album'
 import './index.css'
 import FontAwesome from 'react-fontawesome';
 
 class Album extends React.Component {
+    clickToHistory() {
+        this.props.history.goBack()
+    }
     render() {
-        console.log(this.props)
         const { detail } = this.props
         if (!detail) {
             return (
@@ -45,7 +47,9 @@ class Album extends React.Component {
                             })
                         }
                     </ListGroup>
-
+                    <div className='float-button'>
+                        <Button onClick={this.clickToHistory.bind(this)}><FontAwesome name='undo'/></Button>
+                    </div>
                 </div>
 
             )
