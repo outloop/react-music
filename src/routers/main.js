@@ -4,6 +4,7 @@ import Recommend from '../providers/recommend'
 import Hot from '../providers/hot'
 import Search from '../providers/search'
 import Nav from '../components/nav'
+import Album from '../providers/album'
 
 const Router = () => {
     return (
@@ -14,6 +15,7 @@ const Router = () => {
                     <Route exact path='/recommend' component={Recommend}></Route>
                     <Route path='/hot' component={Hot}></Route>
                     <Route path='/search' component={Search}></Route>
+                    <Route path='/album/:id' component={Album}></Route>
                     <Redirect path='/' to={{ pathname: '/recommend' }} />
                 </Switch>
             </div>

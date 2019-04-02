@@ -2,92 +2,102 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Axios from 'axios'
 import { setBoutique, setNewest, setMv } from '../../actions/recommend'
-import { Container, Row, Col, Card, Button, Carousel, Media, Image } from 'react-bootstrap'
+import { Container, Row, Col, Card, Button, Carousel, Media, Image, Spinner } from 'react-bootstrap'
 import './index.css'
 
 class Recommond extends React.Component {
+    clickToAlbum(id) {
+        this.props.history.push('/album/' + id)
+    }
 
     render() {
         const { sliders, mvs, albums } = this.props
-        return (
-            <div className='content'>
-                <Carousel>
-                    {
-                        sliders.map((val, key) => {
-                            return (
-                                <Carousel.Item key={key}>
-                                    <img className="d-block w-100" src={val.coverImgUrl} alt='' />
-                                    <Carousel.Caption>
-                                        <Button variant="dark ellipsis">{val.title}</Button>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                            )
-                        })
-                    }
-                </Carousel>
-
-                <Container className='block'>
-                    <Row>
-                        <Col>
-                            <h3>推荐MV</h3>
-                        </Col>
-                    </Row>
-                    <Row>
+        if (!sliders || !mvs || !albums) {
+            return (
+                <Spinner animation="grow" />
+            )
+        } else {
+            return (
+                <div className='content'>
+                    <Carousel>
                         {
-                            mvs.map((val, key) => {
+                            sliders.map((val, key) => {
                                 return (
-                                    <Col xs={6} md={6} key={key}>
-                                        <Card>
-                                            <Card.Img variant="top" src={val.pic} />
-                                            <Card.Body>
-                                                <Card.Text className='ellipsis'>{val.name}</Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                        <Button variant='dark' className='radio-block-button' size='sm'>播放</Button>
-                                    </Col>
+                                    <Carousel.Item key={key} onClick={this.clickToAlbum.bind(this, val.id)}>
+                                        <img className="d-block w-100" src={val.coverImgUrl} alt='' />
+                                        <Carousel.Caption>
+                                            <Button variant="dark ellipsis" >{val.title}</Button>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>
                                 )
                             })
                         }
+                    </Carousel>
 
-                    </Row>
-                </Container>
-
-                <Container>
-                    <Row>
-                        <Col><h3>推荐歌单</h3></Col>
-                    </Row>
-                    <ul className="list-unstyled">
-                        {
-                            albums.map((val, key) => {
-                                return (
-                                    <Row key={key}>
-                                        <Col xs={12} md={12}>
-                                            <Media as="li" >
-                                                <Image rounded width={64}
-                                                    height={64}
-                                                    className="mr-3"
-                                                    src={val.coverImgUrl}
-                                                    alt="" />
-
-                                                <Media.Body>
-                                                    <h5 className='ellipsis media-des'>{val.title}</h5>
-                                                    <p className='ellipsis media-des'>
-                                                        {val.description}
-                                                    </p>
-                                                </Media.Body>
-                                            </Media>
+                    <Container className='block'>
+                        <Row>
+                            <Col>
+                                <h3>推荐MV</h3>
+                            </Col>
+                        </Row>
+                        <Row>
+                            {
+                                mvs.map((val, key) => {
+                                    return (
+                                        <Col xs={6} md={6} key={key}>
+                                            <Card>
+                                                <Card.Img variant="top" src={val.pic} />
+                                                <Card.Body>
+                                                    <Card.Text className='ellipsis'>{val.name}</Card.Text>
+                                                </Card.Body>
+                                            </Card>
+                                            <Button variant='dark' className='radio-block-button' size='sm'>播放</Button>
                                         </Col>
-                                    </Row>
+                                    )
+                                })
+                            }
 
-                                )
-                            })
-                        }
-                    </ul>
-                </Container>
+                        </Row>
+                    </Container>
+
+                    <Container>
+                        <Row>
+                            <Col><h3>推荐歌单</h3></Col>
+                        </Row>
+                        <ul className="list-unstyled">
+                            {
+                                albums.map((val, key) => {
+                                    return (
+                                        <Row key={key} onClick={this.clickToAlbum.bind(this, val.id)}>
+                                            <Col xs={12} md={12}>
+                                                <Media as="li" >
+                                                    <Image rounded width={64}
+                                                        height={64}
+                                                        className="mr-3"
+                                                        src={val.coverImgUrl}
+                                                        alt="" />
+
+                                                    <Media.Body>
+                                                        <h5 className='ellipsis media-des'>{val.title}</h5>
+                                                        <p className='ellipsis media-des'>
+                                                            {val.description}
+                                                        </p>
+                                                    </Media.Body>
+                                                </Media>
+                                            </Col>
+                                        </Row>
+
+                                    )
+                                })
+                            }
+                        </ul>
+                    </Container>
 
 
-            </div>
-        )
+                </div>
+            )
+        }
+
     }
 }
 
@@ -115,7 +125,6 @@ function mapDispatchToProps(dispatch) {
         console.log(error)
     });
     return {
-
     }
 }
 

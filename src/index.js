@@ -6,6 +6,7 @@ import store from './stores/main'
 import Route from './routers/main'
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
+import 'font-awesome/css/font-awesome.min.css'
 
 ReactDOM.render(<Provider store={store} >
     <Route />

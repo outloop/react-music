@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Button, ButtonGroup } from 'react-bootstrap'
+import { ButtonGroup } from 'react-bootstrap'
 import './nav.css'
 
 class Nav extends React.Component {
