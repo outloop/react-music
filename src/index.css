@@ -19,3 +19,10 @@ code {
 .route-content {
   padding-top: 42px;
 }
+
+.spinner-grow {
+  position: absolute;
+  z-index: 1000;
+  top: 46.5%;
+  left: 46.5%;
+}

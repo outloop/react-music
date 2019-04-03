@@ -14,7 +14,7 @@ class Album extends React.Component {
         const { detail } = this.props
         if (!detail) {
             return (
-                <Spinner animation="grow" />
+                <Spinner animation="grow" variant="dark" />
             )
         } else {
             const list = detail.songs
@@ -48,7 +48,7 @@ class Album extends React.Component {
                         }
                     </ListGroup>
                     <div className='float-button'>
-                        <Button onClick={this.clickToHistory.bind(this)}><FontAwesome name='undo'/></Button>
+                        <Button onClick={this.clickToHistory.bind(this)} variant="dark"><FontAwesome name='undo'/></Button>
                     </div>
                 </div>
 

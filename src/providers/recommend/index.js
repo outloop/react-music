@@ -14,7 +14,7 @@ class Recommond extends React.Component {
         const { sliders, mvs, albums } = this.props
         if (!sliders || !mvs || !albums) {
             return (
-                <Spinner animation="grow" />
+                <Spinner animation="grow" variant="dark" />
             )
         } else {
             return (
@@ -25,9 +25,9 @@ class Recommond extends React.Component {
                                 return (
                                     <Carousel.Item key={key} onClick={this.clickToAlbum.bind(this, val.id)}>
                                         <img className="d-block w-100" src={val.coverImgUrl} alt='' />
-                                        <Carousel.Caption>
+                                        {/* <Carousel.Caption>
                                             <Button variant="dark ellipsis" >{val.title}</Button>
-                                        </Carousel.Caption>
+                                        </Carousel.Caption> */}
                                     </Carousel.Item>
                                 )
                             })
